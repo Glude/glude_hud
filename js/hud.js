@@ -47,7 +47,7 @@ function updateClock() {
 
   let hours = addZero(today.getHours());
   let minutes = addZero(today.getMinutes());
-  let seconds = addZero(today.getSeconds());
+  // let seconds = addZero(today.getSeconds());
 
   let current_time = `${hours}:${minutes}`;
   let current_date = `${date} ${monat[monate]}`;
@@ -61,3 +61,5 @@ function addZero(num) {
 }
 
 updateClock();
+
+
