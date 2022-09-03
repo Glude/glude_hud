@@ -1,0 +1,190 @@
+@font-face {
+  font-family: Akrobat Bold;
+  src: url(../fonts/Akrobat-Bold.woff);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Akrobat Bold;
+  color: white;
+}
+
+body {
+  background-image: url("../img/image\ 1.png");
+}
+
+
+.time {
+  display: flex;
+  position: absolute;
+  right: 2%;
+  top: 1%;
+  font-family: "Akrobat";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 45px;
+  text-align: center;
+}
+
+#currentime{
+  font-family: "Akrobat";
+  font-style: normal;
+}
+
+.infoid {
+  display: flex;
+  position: absolute;
+  width: 160px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.123);
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+  top: 1%;
+  right: 5.9%;
+}
+
+.groupicon {
+  position: absolute;
+  left: 4.2%;
+}
+
+#playeronline {
+  position: absolute;
+  left: 19.2%;
+  font-family: "Akrobat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}
+
+.id {
+  position: absolute;
+  right: 30%;
+  font-family: "Akrobat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}
+
+#idplayer {
+  position: absolute;
+  right: 20%;
+  font-family: "Akrobat";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}
+
+.date {
+  display: flex;
+  position: absolute;
+  right: 14.5%;
+  top: 1%;
+  width: 65px;
+  height: 21px;
+  background: rgba(0, 0, 0, 0.123);
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+}
+
+#currentdate {
+  font-family: "Akrobat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+/* Bottomleft */
+
+.bottomleft {
+  position: absolute;
+  bottom: 1%;
+  left: 17%;
+}
+
+#playermoney {
+  font-family: "Akrobat";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 45px;
+  /* identical to box height */
+}
+
+.statusarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gpsposition {
+  margin-left: 3.5%;
+  display: flex;
+  background: linear-gradient(
+    90.24deg,
+    rgba(24, 24, 24, 0.8) -15.54%,
+    rgba(0, 0, 0, 0) 50.9%,
+    rgba(55, 51, 51, 0.508733) 83.68%
+  );
+  border-radius: 10px;
+  width: 143px;
+  height: 43px;
+}
+
+.micstatus {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  background: linear-gradient(
+    0deg,
+    #000000 -55.81%,
+    rgba(0, 0, 0, 0) 45.63%,
+    rgba(55, 51, 51, 0.508733) 95.67%
+  );
+  border-radius: 10px;
+}
+
+.gpsicon {
+  display: flex;
+  margin-left: 10px;
+}
+
+.gpstext {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+#gpsheader{
+  font-family: 'Akrobat';
+font-style: normal;
+font-weight: 900;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+margin-top: 3px;
+margin-bottom: 3px;
+}
+
+#gpsbody{
+  font-family: 'Akrobat';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+}

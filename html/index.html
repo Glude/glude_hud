@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/hud.js"></script>
+    <title>StreetV HUD</title>
+  </head>
+  <body>
+    <div id="hud">
+      <div class="topright">
+        <!-- Time -->
+        <div class="time">
+          <div id="currentime">22:46</div>
+        </div>
+
+        <!-- Info ID and Players -->
+        <div class="infoid">
+          <img src="../img/groupicon.png" class="groupicon" />
+          <p id="playeronline">01/100</p>
+          <p class="id">ID</p>
+          <p id="idplayer">01</p>
+        </div>
+
+        <!-- Date -->
+        <div class="date">
+          <p id="currentdate">30 September</p>
+        </div>
+      </div>
+
+      <div class="bottomleft">
+        <!-- Money -->
+        <div class="money">
+          <p id="playermoney">2222</p>
+        </div>
+
+        <div class="statusarea">
+          <!-- Microphone -->
+
+          <div class="mic">
+            <div class="micstatus">
+              <img src="../img/microphone.svg" id="" />
+            </div>
+          </div>
+
+          <div class="gpsposition">
+            <div class="gpsicon">
+              <img src="../img/gpsicon.svg" id="" />
+            </div>
+            <div class="gpstext">
+              <p id="gpsheader">Vespucci Beach</p>
+              <p id="gpsbody">Little Soul</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
