@@ -9,8 +9,11 @@
       integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="../css/style.css" />
-    <!-- <link rel="preload" href="../fonts/Akrobat-Regular.woff2" as="font" type="font/woff2" crossorigin> -->
     <script src="../js/hud.js"></script>
     <title>StreetV HUD</title>
   </head>
@@ -61,11 +64,45 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Speedometer -->
-        <div class="speedometer"></div>
-        <img src="../img/circle.svg" alt="">
+      <!-- Speedometer -->
+      <div class="animate__animated animate__fadeInRight speedometer">
+        <div class="kmhint">
+          <p class="kmh">0</p>
+        </div>
+        <svg
+          width="169"
+          height="218"
+          viewBox="0 0 169 218"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M108.231 214.198C39.6203 196.248 -4.18738 136.545 10.3842 80.8483C24.9559 25.1513 92.3888 -5.44844 161 12.5018"
+            stroke="white"
+            stroke-opacity="0.59"
+            stroke-width="14"
+            stroke-linecap="round"
+            class="circle"
+          />
+        </svg>
+        <svg
+          width="160"
+          height="214"
+          viewBox="0 0 160 214"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="circle2"
+        >
+          <path
+            d="M104.231 210.7C35.6203 192.75 -8.18738 133.047 6.38424 77.3501C20.9559 21.6531 88.3888 -8.94661 157 9.00365"
+            stroke="white"
+            stroke-width="6"
+            stroke-linecap="round"
+          />
+        </svg>
       </div>
-      </div>
+    </div>
   </body>
 </html>

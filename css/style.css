@@ -1,17 +1,19 @@
 @import url(../fonts/stylesheet.css);
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Akrobat Bold;
   color: white;
 }
 
 body {
   background-image: url("../img/image\ 1.png");
 }
-
 
 .time {
   display: flex;
@@ -26,7 +28,7 @@ body {
   text-align: center;
 }
 
-#currentime{
+#currentime {
   font-family: "Akrobat";
   font-style: normal;
 }
@@ -167,21 +169,54 @@ body {
   margin-left: 10px;
 }
 
-#gpsheader{
-  font-family: 'Akrobat';
-font-style: normal;
-font-weight: 900;
-font-size: 14px;
-line-height: 17px;
-text-align: center;
-margin-top: 3px;
-margin-bottom: 3px;
+#gpsheader {
+  font-family: "Akrobat";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
-#gpsbody{
-  font-family: 'Akrobat';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 17px;
+#gpsbody {
+  font-family: "Akrobat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.speedometer {
+  position: absolute;
+  display: grid;
+  bottom: 0%;
+  right: 3%;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle{
+  position: absolute;
+  z-index: -200;
+}
+
+.circle2{
+  position: absolute;
+  z-index: 10;
+}
+
+
+.kmhint {
+  display: grid;
+  justify-self: center;
+  position: absolute;
+  font-family: "Akrobat";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 80px;
+  text-align: center;
+  color: #ffffff;
 }

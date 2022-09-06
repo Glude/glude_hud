@@ -1,7 +1,7 @@
 ESX = nil
-
-
--- Player Money 
+TriggerEvent('esx:getSharedObject', function(obj)
+    ESX = obj
+end)
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
@@ -78,99 +78,58 @@ Citizen.CreateThread(function()
     end
 end)
 
+-- CARHUD
+Citizen.CreateThread(function()
+    while true do
+        local ped = GetPlayerPed(-1)
+        local factor = 3, 6
+        if (IsPedInAnyVehicle(ped)) then
+            local vehicle = GetVehiclePedIsIn(ped, false)
+            if vehicle and GetPedInVehicleSeat(vehicle, -1) == ped then
+                carSpeed = math.ceil(GetEntitySpeed(vehicle) * factor)
+                carRPM = GetVehicleCurrentRpm(vehicle)
+                SendNUIMessage({
+                    displayhud = true,
+                    speed = carSpeed,
+                    RPM = carRPM,
+                    KMH = KPH
+                })
+            else
+                SendNUIMessage({
+                    displayhud = false
+                })
+                Citizen.Wait(1000)
+            end
+        else
+            SendNUIMessage({
+                displayhud = false
+            })
+            Citizen.Wait(100)
+        end
+        Citizen.Wait(1)
+    end
+end)
 
--- CarHUD
+-- Straße und Ort anzeigen
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(100)
+        Citizen.Wait(1000)
+        local ped = PlayerPedId()
+        local x, y, z = table.unpack(GetEntityCoords(ped))
+        local city = GetLabelText(GetNameOfZone(x, y, z))
+        local streetName = GetStreetNameFromHashKey(GetStreetNameAtCoord(x, y, z))
 
-        local player = PlayerPedId()
-        if IsPedInAnyVehicle(player, false) then
-            -- Vehicle Speed
-            if inVehicle == false then
-                inVehicle = true
-            end
+        local gpsheader = streetName
+        local gpsbody = city
 
-            local vehicle = GetVehiclePedIsIn(player, false)
-            local vehicleIsOn = GetIsVehicleEngineRunning(vehicle)
-            local vehicleSpeedSource = GetEntitySpeed(vehicle)
-            local LockStatus = GetVehicleDoorLockStatus(vehicle)
-            local islocked = false
-            local vehicleSpeed
-            vehicleSpeed = math.ceil(vehicleSpeedSource * 3.6)
-
-            -- Vehicle Fuel and Gear
-
-            local vehicleFuel
-            vehicleFuel = math.floor(GetVehicleFuelLevel(vehicle))
-            local vehicleGear = GetVehicleCurrentGear(vehicle)
-            local _, light = GetVehicleLightsState(vehicle)
-            if (vehicleSpeed == 0 and vehicleGear == 0) then
-                vehicleGear = 'N'
-            elseif (vehicleSpeed == 0 and vehicleGear == 1) then
-                vehicleGear = tostring(vehicleGear)
-            elseif vehicleSpeed > 0 and vehicleGear == 0 then
-                vehicleGear = 'R'
-            end
-            if LockStatus == 2 or LockStatus == 3 or LockStatus == 10 or LockStatus == 4 then
-                islocked = true
-            end
-            if vehicleIsOn == 1 then
-                vehicleIsOn = true
-            end
-
-            if lastDamage ~= GetEntityHealth(vehicle) then
-                lastDamage = GetEntityHealth(vehicle)
-                SendNUIMessage({
-                    action = 'handleDamage',
-                    data = lastDamage
-                })
-            end
-
-            SendNUIMessage({
-                action = 'updateHudFuel',
-                data = vehicleFuel
-            })
-            SendNUIMessage({
-                action = 'updateCarHud',
-                data = {
-                    speed = vehicleSpeed,
-                    geer = vehicleGear
-                }
-            })
-            SendNUIMessage({
-                action = 'toggleCarHud',
-                data = true
-            })
-            SendNUIMessage({
-                action = 'handleEngine',
-                data = vehicleIsOn
-            })
-            SendNUIMessage({
-                action = 'handleBeam',
-                data = light
-            })
-            SendNUIMessage({
-                action = 'handleLock',
-                data = islocked
-            })
-        else
-            if inVehicle == true then
-                inVehicle = false
-                SendNUIMessage({
-                    action = 'toggleCarHud',
-                    data = false
-                })
-                SendNUIMessage({
-                    action = 'handleEngine',
-                    data = false
-                })
-                lastDamage = -1
-            end
-
-            Citizen.Wait(1000) -- Performance
-        end
-
+        SendNUIMessage({
+            action = "gpsheader",
+            body = "gpsbody",
+            gpsheader = gpsheader,
+            gpsbody = gpsbody
+        })
     end
+    Citizen.Wait(500)
 end)
+

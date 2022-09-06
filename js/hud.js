@@ -11,9 +11,24 @@ $(document).ready(function () {
     }
     if (event.data.action == "setMoney") {
       setAnzahl(event.data.money);
-      $(".money").show();
       $("money").show();
-    };
+      $(".money").show();
+    }
+    if (event.data.displayhud == true) {
+      $(".speedometer").show();
+      update(event.data.speed, 1);
+    }
+
+    if (event.data.displayhud == false) {
+      $(".speedometer").hide();
+      update(event.data.speed, 1);
+    }
+    if(event.data.action == "gpsheader") {
+      $('#gpsheader').text(event.data.gpsheader)
+    }
+    if(event.data.body == "gpsbody") {
+      $('#gpsbody').text(event.data.gpsbody)
+    }
   });
 });
 
@@ -62,4 +77,8 @@ function addZero(num) {
 
 updateClock();
 
+
+function update(speed, gas) {
+  document.getElementsByClassName("kmh")[0].innerHTML = speed;
+}
 
