@@ -1,19 +1,5 @@
 $(document).ready(function () {
   window.addEventListener("message", function (event) {
-    if (event.data.action == "update_status") {
-      document.getElementById("idplayer").innerHTML = event.data.pid;
-    }
-    if (event.data.action == "showHud") {
-      $("#hud").show();
-    }
-    if (event.data.action == "hideHud") {
-      $("#hud").hide();
-    }
-    if (event.data.action == "setMoney") {
-      setAnzahl(event.data.money);
-      $("money").show();
-      $(".money").show();
-    }
     if (event.data.displayhud == true) {
       $(".speedometer").show();
       update(event.data.speed, 1);
@@ -23,14 +9,39 @@ $(document).ready(function () {
       $(".speedometer").hide();
       update(event.data.speed, 1);
     }
-    if(event.data.action == "gpsheader") {
-      $('#gpsheader').text(event.data.gpsheader)
+
+    if (event.data.body == "gpsbody") {
+      $("#gpsbody").text(event.data.gpsbody);
     }
-    if(event.data.body == "gpsbody") {
-      $('#gpsbody').text(event.data.gpsbody)
+    switch (event.data.action) {
+      case 'update_status':
+        document.getElementById("idplayer").innerHTML = event.data.pid;
+      break;
+      case "showHud":
+        $("#hud").show();
+        break;
+      case "hideHud":
+        $("#hud").hide();
+        break;
+      case "setMoney":
+        setAnzahl(event.data.money);
+        $("money").show();
+        $(".money").show();
+        break;
+      case "gpsheader":
+        $("#gpsheader").text(event.data.gpsheader);
+        break;
+      case "savezone":
+        $("#savezone").show();
+        break;
+      case "savezonenotshow":
+        $("#savezone").hide();
+      default:
+        break;
     }
   });
-});
+  });
+
 
 
 function setAnzahl(anzahl) {
@@ -77,8 +88,6 @@ function addZero(num) {
 
 updateClock();
 
-
 function update(speed, gas) {
   document.getElementsByClassName("kmh")[0].innerHTML = speed;
 }
-

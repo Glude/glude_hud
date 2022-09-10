@@ -17,6 +17,7 @@ AddEventHandler('esx:playerLoaded', function(xPlayer)
             money = data.money
         })
     end
+    ReplaceHudColourWithRgba(116, 211, 84, 0, 255)
 end)
 
 RegisterNetEvent('esx:setAccountMoney')
@@ -42,7 +43,15 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(10)
+        Citizen.Wait(0)
+        HideHudComponentThisFrame(1)
+        HideHudComponentThisFrame(2)
+        HideHudComponentThisFrame(3)
+        HideHudComponentThisFrame(4)
+        HideHudComponentThisFrame(6)
+        HideHudComponentThisFrame(7)
+        HideHudComponentThisFrame(8)
+        HideHudComponentThisFrame(9)
         if IsPauseMenuActive() and not isPaused then
             isPaused = true
             SendNUIMessage({
@@ -70,11 +79,11 @@ end)
 -- PlayerID showHud
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(1000)
         SendNUIMessage({
             action = "update_status",
             pid = GetPlayerServerId(NetworkGetEntityOwner(GetPlayerPed(-1)))
         })
+        Citizen.Wait(1000)
     end
 end)
 
@@ -82,7 +91,7 @@ end)
 Citizen.CreateThread(function()
     while true do
         local ped = GetPlayerPed(-1)
-        local factor = 3, 6
+        local factor = 3.6
         if (IsPedInAnyVehicle(ped)) then
             local vehicle = GetVehiclePedIsIn(ped, false)
             if vehicle and GetPedInVehicleSeat(vehicle, -1) == ped then
@@ -133,3 +142,13 @@ Citizen.CreateThread(function()
     Citizen.Wait(500)
 end)
 
+-- Test Savezone
+
+Citizen.CreateThread(function()
+    while true do
+        local ped = PlayerPedId()
+        local playerCoords = GetEntityCoords(ped)
+        local distance  = Vdist(playerCoords, y1, z1, x2, y2, z2)
+
+    end
+end)

@@ -197,16 +197,15 @@ body {
   justify-content: center;
 }
 
-.circle{
+.circle {
   position: absolute;
   z-index: -200;
 }
 
-.circle2{
+.circle2 {
   position: absolute;
   z-index: 10;
 }
-
 
 .kmhint {
   display: grid;
@@ -219,4 +218,47 @@ body {
   line-height: 80px;
   text-align: center;
   color: #ffffff;
+}
+
+#kmhtext {
+  font-family: "Akrobat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  /* identical to box height */
+
+  text-align: center;
+}
+
+.savezonearea{
+display: flex;
+}
+
+.saveicon{
+  position: absolute;
+  left: 7%;
+}
+
+#savezone {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 181px;
+  height: 53px;
+  background: linear-gradient(
+    90.52deg,
+    #59a058 0.89%,
+    rgba(89, 160, 88, 0) 116.54%
+  );
+  border-radius: 12px 0px 0px 0px;
+}
+.savezonetext {
+  font-family: "Akrobat";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  letter-spacing: 0.045em;
 }
