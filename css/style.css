@@ -160,6 +160,12 @@ body {
 .gpsicon {
   display: flex;
   margin-left: 10px;
+  align-items: center;
+}
+
+#gpsiconsvg{
+  width: 26px;
+  height: 26px;
 }
 
 .gpstext {
@@ -197,18 +203,34 @@ body {
   justify-content: center;
 }
 
-.circle {
+.speedometer > svg > circle:first-of-type {
+  stroke: #a200ff;
+  stroke-width:5px;
+  transform:scale(1.85) scaleX(-1);
+  fill:none;
+  position:relative;
+  left:-21.32em;
+  box-sizing:border-box;
+  stroke-dasharray: 370;
+  stroke-dashoffset: 299;
+  
+}
+
+
+#circle {
   position: absolute;
   z-index: -200;
 }
 
-.circle2 {
+#circle2 {
   position: absolute;
   z-index: 10;
 }
 
 .kmhint {
   display: grid;
+  right: 3%;
+  bottom: 3%;
   justify-self: center;
   position: absolute;
   font-family: "Akrobat";
@@ -262,3 +284,5 @@ display: flex;
   text-align: center;
   letter-spacing: 0.045em;
 }
+
+

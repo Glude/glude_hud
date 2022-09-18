@@ -146,9 +146,23 @@ end)
 
 Citizen.CreateThread(function()
     while true do
+        Citizen.Wait(1000)
         local ped = PlayerPedId()
         local playerCoords = GetEntityCoords(ped)
-        local distance  = Vdist(playerCoords, y1, z1, x2, y2, z2)
+        local distance = Vdist(playerCoords, 147.0615, -1034.404, 29.34414)
 
+        if distance < 4.0 then
+            SendNUIMessage({
+                action = "savezone"
+            })
+        else
+            SendNUIMessage({
+                action = "savezonenotshow"
+            })
+        end
+        Citizen.Wait(1000)
     end
 end)
+
+
+

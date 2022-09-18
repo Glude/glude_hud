@@ -2,21 +2,21 @@ $(document).ready(function () {
   window.addEventListener("message", function (event) {
     if (event.data.displayhud == true) {
       $(".speedometer").show();
-      update(event.data.speed, 1);
     }
 
     if (event.data.displayhud == false) {
       $(".speedometer").hide();
       update(event.data.speed, 1);
     }
-
     if (event.data.body == "gpsbody") {
       $("#gpsbody").text(event.data.gpsbody);
     }
+
+  //  Ab hier beginnt die action switch case methoden
     switch (event.data.action) {
-      case 'update_status':
+      case "update_status":
         document.getElementById("idplayer").innerHTML = event.data.pid;
-      break;
+        break;
       case "showHud":
         $("#hud").show();
         break;
@@ -32,17 +32,16 @@ $(document).ready(function () {
         $("#gpsheader").text(event.data.gpsheader);
         break;
       case "savezone":
-        $("#savezone").show();
+          $("#savezone").show();
         break;
-      case "savezonenotshow":
-        $("#savezone").hide();
+        case "savezonenotshow":
+          $("#savezone").hide();
+        break;
       default:
         break;
     }
   });
-  });
-
-
+});
 
 function setAnzahl(anzahl) {
   document.getElementById("playermoney").innerHTML =
@@ -91,3 +90,4 @@ updateClock();
 function update(speed, gas) {
   document.getElementsByClassName("kmh")[0].innerHTML = speed;
 }
+
