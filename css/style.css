@@ -163,7 +163,7 @@ body {
   align-items: center;
 }
 
-#gpsiconsvg{
+#gpsiconsvg {
   width: 26px;
   height: 26px;
 }
@@ -205,17 +205,15 @@ body {
 
 .speedometer > svg > circle:first-of-type {
   stroke: #a200ff;
-  stroke-width:5px;
-  transform:scale(1.85) scaleX(-1);
-  fill:none;
-  position:relative;
-  left:-21.32em;
-  box-sizing:border-box;
+  stroke-width: 5px;
+  transform: scale(1.85) scaleX(-1);
+  fill: none;
+  position: relative;
+  left: -21.32em;
+  box-sizing: border-box;
   stroke-dasharray: 370;
   stroke-dashoffset: 299;
-  
 }
-
 
 #circle {
   position: absolute;
@@ -253,11 +251,11 @@ body {
   text-align: center;
 }
 
-.savezonearea{
-display: flex;
+.savezonearea {
+  display: flex;
 }
 
-.saveicon{
+.saveicon {
   position: absolute;
   left: 7%;
 }
@@ -284,5 +282,3 @@ display: flex;
   text-align: center;
   letter-spacing: 0.045em;
 }
-
-

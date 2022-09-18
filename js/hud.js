@@ -12,7 +12,7 @@ $(document).ready(function () {
       $("#gpsbody").text(event.data.gpsbody);
     }
 
-  //  Ab hier beginnt die action switch case methoden
+    //  Ab hier beginnt die action switch case methoden
     switch (event.data.action) {
       case "update_status":
         document.getElementById("idplayer").innerHTML = event.data.pid;
@@ -32,10 +32,10 @@ $(document).ready(function () {
         $("#gpsheader").text(event.data.gpsheader);
         break;
       case "savezone":
-          $("#savezone").show();
+        $("#savezone").show();
         break;
-        case "savezonenotshow":
-          $("#savezone").hide();
+      case "savezonenotshow":
+        $("#savezone").hide();
         break;
       default:
         break;
@@ -90,4 +90,3 @@ updateClock();
 function update(speed, gas) {
   document.getElementsByClassName("kmh")[0].innerHTML = speed;
 }
-
