@@ -2,6 +2,7 @@
 # Fivem HUD by Glude
 
 glude_hud is an HUD for FiveM and ESX Legacy.
+Discord: Glude#9999
 
 
 ## Screenshot
